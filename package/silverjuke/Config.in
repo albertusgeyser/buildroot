@@ -1,0 +1,38 @@
+config BR2_PACKAGE_SILVERJUKE
+    bool "silverjuke"
+    depends on BR2_PACKAGE_HAS_LIBGL
+    depends on BR2_USE_MMU  # libgtk3
+    depends on BR2_TOOLCHAIN_HAS_SYNC_4  # libgtk3
+    depends on BR2_USE_WCHAR  # libgtk3
+    depends on BR2_TOOLCHAIN_HAS_THREADS  # libgtk3
+    depends on BR2_TOOLCHAIN_GCC_AT_LEAST_4_9  # libgtk3
+    depends on BR2_INSTALL_LIBSTDCPP
+    select BR2_PACKAGE_SQLITE
+    select BR2_PACKAGE_GSTREAMER1
+    select BR2_PACKAGE_GST1_PLUGINS_BASE
+    select BR2_PACKAGE_GST1_PLUGINS_GOOD
+    select BR2_PACKAGE_GST1_LIBAV
+    select BR2_PACKAGE_GST1_PLUGINS_UGLY
+    select BR2_PACKAGE_LIBUPNP
+    select BR2_PACKAGE_ZLIB
+    select BR2_PACKAGE_WXWIDGETS
+
+    # Dependencies for OpenGL support
+    select BR2_PACKAGE_MESA3D_GBM if BR2_PACKAGE_HAS_LIBGL
+    select BR2_PACKAGE_MESA3D_OPENGL_GLX if BR2_PACKAGE_HAS_LIBGL
+    select BR2_PACKAGE_MESA3D_OPENGL_EGL if BR2_PACKAGE_HAS_LIBGL
+    select BR2_PACKAGE_MESA3D_OPENGL_ES if BR2_PACKAGE_HAS_LIBGL
+    select BR2_PACKAGE_LIBGLU if BR2_PACKAGE_HAS_LIBGL
+
+    # Additional dependencies
+    select BR2_PACKAGE_AUTOMAKE # Required for autoreconf
+    select BR2_PACKAGE_AUTOCONF # Required for autoreconf
+    select BR2_PACKAGE_LIBTOOL  # Required for autoreconf
+
+    help
+      Silverjuke is the easy-to-use jukebox with more than ten years of experience.
+
+      https://www.silverjuke.net
+
+	  
+
